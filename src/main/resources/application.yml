@@ -1,0 +1,72 @@
+server.port: 8087
+
+logging:
+  level:
+    web: DEBUG
+    org:
+      springframework:
+        data:
+          mongodb:
+            core:
+              MongoTemplate: DEBUG
+
+application:
+  title: Case Sync Service
+
+management:
+  endpoint:
+    health:
+      enabled: true
+    beans:
+      enabled: true
+    refresh:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: openapi, swaggerui, beans, health, info, env, info, autoconfig, configprops, metrics, mappings, trace, prometheus, refresh, bus-refresh
+
+
+springdoc:
+  swagger-ui.path: /swagger-ui.html
+  api-docs:
+    path: /api-docs
+    enabled: true
+  show-actuator: true
+
+server:
+  servlet:
+    context-path: /case-sync-service
+
+
+client:
+  baseURL:
+    caseStatusClient: http://localhost:8093/case-status-service
+
+spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfigurationD
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017
+      database: case-sync-scheduler
+      uuid-representation: STANDARD
+
+paths:
+  skip:
+    - /actuator
+    - /swagger
+    - /api-docs/**
+
+executor:
+  thread:
+    poolSize: 200
+
+scheduler:
+  schedulingEnabled: true
+  time: 0 0 5 * * *
+  user: systemuser
