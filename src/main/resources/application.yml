@@ -12,27 +12,7 @@ logging:
 
 application:
   title: Case Sync Service
-
-management:
-  endpoint:
-    health:
-      enabled: true
-    beans:
-      enabled: true
-    refresh:
-      enabled: true
-  endpoints:
-    web:
-      exposure:
-        include: openapi, swaggerui, beans, health, info, env, info, autoconfig, configprops, metrics, mappings, trace, prometheus, refresh, bus-refresh
-
-
-springdoc:
-  swagger-ui.path: /swagger-ui.html
-  api-docs:
-    path: /api-docs
-    enabled: true
-  show-actuator: true
+  version: 1.0
 
 server:
   servlet:
@@ -68,5 +48,5 @@ executor:
 
 scheduler:
   schedulingEnabled: true
-  time: 0 0 5 * * *
+  time: 0 * * * * *
   user: systemuser
