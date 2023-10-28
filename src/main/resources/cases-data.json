@@ -1,0 +1,283 @@
+{
+    "value": [
+      {
+        "id": "06f1d54f-2d11-11ee-83a9-6f0f582b2f28",
+        "displayId": "750",
+        "subject": "Test Case 4 - ESS Portal_Anurag",
+        "priority": "03",
+        "priorityDescription": "Normal",
+        "origin": "MANUAL_DATA_ENTRY",
+        "caseType": "ZLSS",
+        "caseTypeDescription": "SAP Learning",
+        "statusSchema": "ZL",
+        "status": "05",
+        "statusDescription": "Completed",
+        "escalationStatus": "NOT_ESCALATED",
+        "isRecommendedCommunicationLanguage": false,
+        "account": {
+          "id": "11ee2ca3-6d2f-243e-afdb-819790020a00",
+          "displayId": "1000271",
+          "name": "Anurag Pandey",
+          "isDeleted": false,
+          "partyRoleCategory": "ACCOUNT",
+          "partyRole": "1001",
+          "partyRoleDescription": "Account",
+          "addressId": "11ee2ca3-6d2f-c07e-afdb-819790020a00",
+          "determinationMethodCode": 1,
+          "isMain": true,
+          "partyType": "ACCOUNT"
+        },
+        "processor": {
+          "emailId": "anurag.pandey01@sap.com",
+          "employeeDisplayId": "C5355245",
+          "id": "11ee26b4-6a74-543e-afdb-817f5a020a00",
+          "displayId": "8000000281",
+          "name": "Anurag Pandey",
+          "isDeleted": false,
+          "partyRoleCategory": "PROCESSOR",
+          "partyRole": "40",
+          "partyRoleDescription": "Processor",
+          "addressId": "11ee26b4-6a74-c96e-afdb-817f5a020a00",
+          "determinationMethodCode": 1,
+          "isMain": true,
+          "partyType": "EMPLOYEE"
+        },
+        "serviceTeam": {
+          "id": "11ed276e-dad8-f78e-afdb-81c326010a00",
+          "displayId": "L1_MSG",
+          "name": "L1 LSOS Support",
+          "isDeleted": false,
+          "partyRoleCategory": "SERVICE_TEAM",
+          "partyRole": "28",
+          "partyRoleDescription": "Service and Support Team",
+          "determinationMethodCode": 13,
+          "isMain": true,
+          "partyType": "ORGANIZATIONAL_UNIT"
+        },
+        "reporter": {
+          "id": "11ed77b2-d0e6-e9ae-afdb-81c8ca010a00",
+          "displayId": "8000000091",
+          "name": "WS_ESM_SVC_DEV",
+          "isDeleted": false,
+          "partyRoleCategory": "REPORTER",
+          "partyRole": "214",
+          "partyRoleDescription": "Reporter",
+          "addressId": "11ed77b2-d0e8-975e-afdb-81c8ca010a00",
+          "determinationMethodCode": 3,
+          "isMain": true,
+          "partyType": "EMPLOYEE"
+        },
+        "description": {
+          "content": "Hi,\r\n\r\nChecking the case creation via ESS portal.",
+          "id": "06f57ed0-2d11-11ee-83a9-f1b9b1902866",
+          "noteId": "06b76456-2d11-11ee-8bcb-a598edba5265",
+          "noteType": "S000",
+          "adminData": {
+            "createdOn": "2023-07-28T06:36:04.544Z",
+            "createdBy": "5976c321-77b3-11ed-aaa1-9d0e371fedb2",
+            "createdByName": "WS_ESM_SVC_DEV",
+            "updatedOn": "2023-07-28T06:36:05.398Z",
+            "updatedBy": "5976c321-77b3-11ed-aaa1-9d0e371fedb2",
+            "updatedByName": "WS_ESM_SVC_DEV"
+          }
+        },
+        "relatedObjects": [
+          {
+            "id": "c86563ae-523b-11ee-ba39-99ad956ad533",
+            "objectId": "c74b683a-523b-11ee-be2a-7bbfe18b0055",
+            "type": "39",
+            "role": "2"
+          }
+        ],
+        "timePoints": {
+          "reportedOn": "2023-07-28T06:36:05.175Z",
+          "completedOn": "2023-09-13T13:45:18.927Z",
+          "assignedToCustomerOn": "2023-09-13T13:45:18.927Z",
+          "initialReviewCompletedOn": "2023-09-13T13:45:18.927Z",
+          "responseDueOn": "2023-07-31T07:06:05.000Z",
+          "assignedToProcessorOn": "2023-07-28T06:36:05.240Z"
+        },
+        "categoryLevel1": {
+          "id": "4f47b457-ed1f-412b-ac4b-5e02da39813e",
+          "displayId": "ZESM_LSO_LNG",
+          "status": "ACTIVE",
+          "description": "Learning Content",
+          "name": "Learning Content"
+        },
+        "categoryLevel2": {
+          "id": "b75cd6ab-c612-4204-9f8a-e3b65f38f2b2",
+          "displayId": "ZESM_LSO_LNG_CC",
+          "status": "ACTIVE",
+          "description": "Customer Configuration",
+          "name": "Customer Configuration"
+        },
+        "catalog": {
+          "id": "24d8e296-403d-4551-b29b-bbdfbb5e5c9c",
+          "displayId": "ZESM_LSO",
+          "name": "SAP Learning "
+        },
+        "serviceLevelId": "ee902299-3a3e-11ed-a7d7-119fcde1418c",
+        "serviceLevel": "ZLSO_Normal",
+        "durationTerms": {
+          "durationWithAgent": "P0Y1M11DT7H9M13S"
+        },
+        "isRecommendedCategory": false,
+        "isEndOfPurpose": false,
+        "isDepersonalized": false,
+        "isRead": true,
+        "isIrrelevant": false,
+        "adminData": {
+          "createdOn": "2023-07-28T06:36:04.856Z",
+          "createdBy": "5976c321-77b3-11ed-aaa1-9d0e371fedb2",
+          "createdByName": "WS_ESM_SVC_DEV",
+          "updatedOn": "2023-09-13T13:45:21.367Z",
+          "updatedBy": "00000000-0000-0000-0000-000000000000",
+          "updatedByName": "SAP_SYSTEM01"
+        }
+      },
+      {
+        "id": "10d6df01-2d1e-11ee-83a9-0917b63d5842",
+        "displayId": "745",
+        "subject": "Test case via Portal_Kelly",
+        "priority": "03",
+        "priorityDescription": "Normal",
+        "origin": "MANUAL_DATA_ENTRY",
+        "caseType": "ZLSS",
+        "caseTypeDescription": "SAP Learning",
+        "statusSchema": "ZL",
+        "status": "05",
+        "statusDescription": "Completed",
+        "escalationStatus": "NOT_ESCALATED",
+        "isRecommendedCommunicationLanguage": false,
+        "account": {
+          "id": "11ee2d1d-f8d2-83ee-afdb-818259020a00",
+          "displayId": "1000272",
+          "name": "Kelly Lin",
+          "isDeleted": false,
+          "partyRoleCategory": "ACCOUNT",
+          "partyRole": "1001",
+          "partyRoleDescription": "Account",
+          "addressId": "11ee2d1d-f8d3-202e-afdb-818259020a00",
+          "determinationMethodCode": 1,
+          "isMain": true,
+          "partyType": "ACCOUNT"
+        },
+        "processor": {
+          "emailId": "esmdev@sap.com",
+          "employeeDisplayId": "WS_ESM_SVC_DEV",
+          "id": "11ed77b2-d0e6-e9ae-afdb-81c8ca010a00",
+          "displayId": "8000000091",
+          "name": "WS_ESM_SVC_DEV",
+          "isDeleted": false,
+          "partyRoleCategory": "PROCESSOR",
+          "partyRole": "40",
+          "partyRoleDescription": "Processor",
+          "addressId": "11ed77b2-d0e8-975e-afdb-81c8ca010a00",
+          "determinationMethodCode": 3,
+          "isMain": true,
+          "partyType": "EMPLOYEE"
+        },
+        "serviceTeam": {
+          "id": "11ed276e-dad8-f78e-afdb-81c326010a00",
+          "displayId": "L1_MSG",
+          "name": "L1 LSOS Support",
+          "isDeleted": false,
+          "partyRoleCategory": "SERVICE_TEAM",
+          "partyRole": "28",
+          "partyRoleDescription": "Service and Support Team",
+          "determinationMethodCode": 13,
+          "isMain": true,
+          "partyType": "ORGANIZATIONAL_UNIT"
+        },
+        "reporter": {
+          "id": "11ed77b2-d0e6-e9ae-afdb-81c8ca010a00",
+          "displayId": "8000000091",
+          "name": "WS_ESM_SVC_DEV",
+          "isDeleted": false,
+          "partyRoleCategory": "REPORTER",
+          "partyRole": "214",
+          "partyRoleDescription": "Reporter",
+          "addressId": "11ed77b2-d0e8-975e-afdb-81c8ca010a00",
+          "determinationMethodCode": 3,
+          "isMain": true,
+          "partyType": "EMPLOYEE"
+        },
+        "description": {
+          "content": "test case via portal",
+          "id": "10da8882-2d1e-11ee-83a9-dfd2dcb49922",
+          "noteId": "10967aac-2d1e-11ee-89e8-4d1846a71215",
+          "noteType": "S000",
+          "adminData": {
+            "createdOn": "2023-07-28T08:09:24.563Z",
+            "createdBy": "5976c321-77b3-11ed-aaa1-9d0e371fedb2",
+            "createdByName": "WS_ESM_SVC_DEV",
+            "updatedOn": "2023-07-28T08:09:25.520Z",
+            "updatedBy": "5976c321-77b3-11ed-aaa1-9d0e371fedb2",
+            "updatedByName": "WS_ESM_SVC_DEV"
+          }
+        },
+        "relatedObjects": [
+          {
+            "id": "adf8d488-2d85-11ee-a525-c112d962f575",
+            "objectId": "ad0fad39-2d85-11ee-86ac-9d19bd450550",
+            "type": "39",
+            "role": "2"
+          },
+          {
+            "id": "c9ac05bb-3043-11ee-a525-93575fc09fa4",
+            "objectId": "c85d656f-3043-11ee-9f0a-1715951a9999",
+            "type": "39",
+            "role": "2"
+          }
+        ],
+        "timePoints": {
+          "reportedOn": "2023-07-28T08:09:25.256Z",
+          "completedOn": "2023-08-01T08:16:57.067Z",
+          "assignedToCustomerOn": "2023-08-01T08:16:57.067Z",
+          "initialReviewCompletedOn": "2023-08-01T08:16:57.067Z",
+          "responseDueOn": "2023-07-31T08:39:25.000Z",
+          "assignedToProcessorOn": "2023-07-28T08:09:25.360Z"
+        },
+        "categoryLevel1": {
+          "id": "4f47b457-ed1f-412b-ac4b-5e02da39813e",
+          "displayId": "ZESM_LSO_LNG",
+          "status": "ACTIVE",
+          "description": "Learning Content",
+          "name": "Learning Content"
+        },
+        "categoryLevel2": {
+          "id": "c777d1de-c2e7-42ff-af7b-33dc439b9420",
+          "displayId": "ZESM_LSO_LNG_LJ",
+          "status": "ACTIVE",
+          "description": "Learning Journey",
+          "name": "Learning Journey"
+        },
+        "catalog": {
+          "id": "24d8e296-403d-4551-b29b-bbdfbb5e5c9c",
+          "displayId": "ZESM_LSO",
+          "name": "SAP Learning "
+        },
+        "serviceLevelId": "ee902299-3a3e-11ed-a7d7-119fcde1418c",
+        "serviceLevel": "ZLSO_Normal",
+        "durationTerms": {
+          "durationWithAgent": "P0Y0M1DT0H7M31S"
+        },
+        "isRecommendedCategory": false,
+        "isEndOfPurpose": false,
+        "isDepersonalized": false,
+        "isRead": true,
+        "isIrrelevant": true,
+        "extensions": {
+          "MiscInfo": "no survey"
+        },
+        "adminData": {
+          "createdOn": "2023-07-28T08:09:24.860Z",
+          "createdBy": "5976c321-77b3-11ed-aaa1-9d0e371fedb2",
+          "createdByName": "WS_ESM_SVC_DEV",
+          "updatedOn": "2023-08-01T08:16:59.946Z",
+          "updatedBy": "00000000-0000-0000-0000-000000000000",
+          "updatedByName": "SAP_SYSTEM01"
+        }
+      }
+    ]
+  }

@@ -1,8 +1,11 @@
 package com.example.casesyncservice.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
+
 @Data
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CaseItem {
     private String id;
     private String displayId;
@@ -15,7 +18,4 @@ public class CaseItem {
     private String statusSchema;
     private String status;
     private String statusDescription;
-    private String escalationStatus;
-    private boolean isRecommendedCommunicationLanguage;
-    private Account account;
 }
