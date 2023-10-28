@@ -4,6 +4,7 @@ import com.example.casesyncservice.client.CaseServiceClient;
 import com.example.casesyncservice.config.SyncConfig;
 import com.example.casesyncservice.model.Cases;
 import com.example.casesyncservice.model.StatusData;
+import com.example.casesyncservice.util.CaseUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,8 +28,8 @@ public class CaseSyncServiceImpl implements CaseSyncService {
     @Override
     public void syncCaseStatus() {
         log.info("Calling Case Service Client GET API to fetch all cases details");
-        //Cases caseList = CaseUtil.readJsonFile();
-        Cases caseList = caseServiceClient.fetchCasesFromExternalService(buildFilterExpression());
+        Cases caseList = CaseUtil.readJsonFile();
+        //Cases caseList = caseServiceClient.fetchCasesFromExternalService(buildFilterExpression());
         if(caseList!=null) {
             markAndSyncCaseStatus(caseList);
         } else {
@@ -46,12 +47,13 @@ public class CaseSyncServiceImpl implements CaseSyncService {
     }
 
     private void markAndSyncCaseStatus(final Cases cases) {
-        cases.getValue().forEach(caseItem -> {
+        /*cases.getValue().forEach(caseItem -> {
             if(caseItem.getCaseType().equals(syncConfig.getCaseType())
                     && caseItem.getStatus().equals(syncConfig.getFromStatus())) {
                 StatusData statusData = new StatusData("06", "Closed");
                 caseServiceClient.updateCaseStatus(statusData);
             }
-        });
+        });*/
+        cases.getValue().forEach(caseItem -> System.out.println("Status is: " + caseItem.getStatus()));
     }
 }

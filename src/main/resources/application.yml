@@ -3,12 +3,6 @@ server.port: 8087
 logging:
   level:
     web: DEBUG
-    org:
-      springframework:
-        data:
-          mongodb:
-            core:
-              MongoTemplate: DEBUG
 
 application:
   title: Case Sync Service
@@ -30,21 +24,12 @@ spring:
       - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
       - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
       - org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfigurationD
-  data:
-    mongodb:
-      uri: mongodb://localhost:27017
-      database: case-sync-scheduler
-      uuid-representation: STANDARD
 
 paths:
   skip:
     - /actuator
     - /swagger
     - /api-docs/**
-
-executor:
-  thread:
-    poolSize: 200
 
 scheduler:
   schedulingEnabled: true
