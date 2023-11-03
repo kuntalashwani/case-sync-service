@@ -28,8 +28,7 @@ public class CaseSyncServiceImpl implements CaseSyncService {
     @Override
     public void syncCaseStatus() {
         log.info("Calling Case Service Client GET API to fetch all cases details");
-        Cases caseList = CaseUtil.readJsonFile();
-        //Cases caseList = caseServiceClient.fetchCasesFromExternalService(buildFilterExpression());
+        Cases caseList = caseServiceClient.fetchCasesFromExternalService(buildFilterExpression());
         if(caseList!=null) {
             markAndSyncCaseStatus(caseList);
         } else {
@@ -42,18 +41,17 @@ public class CaseSyncServiceImpl implements CaseSyncService {
         String currentFormattedDate = currentDate.format(DateTimeFormatter.ofPattern(DATE_FORMAT));
         LocalDate dateMinus30Days = currentDate.minus(Period.ofDays(syncConfig.getNoOfDays()));
         String tillLastDate = dateMinus30Days.format(DateTimeFormatter.ofPattern(DATE_FORMAT));
-        return OPENING_BRACES + UPDATED_ON + BETWEEN + currentFormattedDate + SPACE  + tillLastDate
+        return OPENING_BRACES + ADMIN_DATA + UPDATED_ON + BETWEEN + currentFormattedDate + SPACE  + tillLastDate
                 + CLOSING_BRACES + AND + OPENING_BRACES + STATUS + EQ + syncConfig.getFromStatus() + CLOSING_BRACES;
     }
 
     private void markAndSyncCaseStatus(final Cases cases) {
-        /*cases.getValue().forEach(caseItem -> {
+        cases.getValue().forEach(caseItem -> {
             if(caseItem.getCaseType().equals(syncConfig.getCaseType())
                     && caseItem.getStatus().equals(syncConfig.getFromStatus())) {
                 StatusData statusData = new StatusData("06", "Closed");
-                caseServiceClient.updateCaseStatus(statusData);
+                caseServiceClient.updateCaseStatus(caseItem.getId(), statusData);
             }
-        });*/
-        cases.getValue().forEach(caseItem -> System.out.println("Status is: " + caseItem.getStatus()));
+        });
     }
 }

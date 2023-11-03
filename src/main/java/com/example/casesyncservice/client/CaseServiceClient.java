@@ -7,10 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -28,6 +25,10 @@ public class CaseServiceClient {
     private String baseUrl;
     @Autowired
     private RestTemplate restTemplate;
+    @Value("${auth.username}")
+    private String username;
+    @Value(("${auth.password}"))
+    private String password;
 
     public Cases fetchCasesFromExternalService(final String filterExpression) {
         log.info("Fetching Cases Data from External Service");
@@ -36,7 +37,7 @@ public class CaseServiceClient {
                 .queryParamIfPresent("$filter", Optional.ofNullable(filterExpression));
         try {
             ResponseEntity<Cases> response = restTemplate.exchange(builder.toUriString(), HttpMethod.GET,
-                    null, new ParameterizedTypeReference<>() {
+                    new HttpEntity<>(buildAuthToken()), new ParameterizedTypeReference<>() {
                     }
             );
             return response.getBody();
@@ -46,18 +47,46 @@ public class CaseServiceClient {
         }
     }
 
-    public void updateCaseStatus(final StatusData statusData) {
+    public void updateCaseStatus(final String caseId, final StatusData statusData) {
+        String eTag = extractETagResponseHeader(caseId);
         log.info("Patching update to Closed status for completed cases..");
-        String path = finalURL(UPDATE_CASES_DATA, Map.of());
+        String path = finalURL(UPDATE_CASES_DATA, Map.of(VARIABLE_CASE_ID, caseId));
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(baseUrl + path);
         try {
+            HttpHeaders headers = buildAuthToken();
+            headers.set("If-Match", eTag);
             restTemplate.exchange(builder.toUriString(), HttpMethod.PATCH,
-                    new HttpEntity<>(statusData), new ParameterizedTypeReference<>() {
+                    new HttpEntity<>(statusData, headers), new ParameterizedTypeReference<>() {
                     }
             );
         } catch (Exception e) {
             throw new CaseSyncException(HttpStatus.INTERNAL_SERVER_ERROR,
                     String.format("Unable to patch cases data with response : %s", e));
         }
+    }
+
+    private String extractETagResponseHeader(final String caseId) {
+        log.info("Extracting ETag from responseHeaders...");
+        String path = finalURL(UPDATE_CASES_DATA, Map.of(VARIABLE_CASE_ID, caseId));
+        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(baseUrl + path);
+        try {
+            ResponseEntity<String> responseEntity = restTemplate.exchange(builder.toUriString(), HttpMethod.GET,
+                    new HttpEntity<>(buildAuthToken()), new ParameterizedTypeReference<>() {
+                    }
+            );
+            return responseEntity.getHeaders().getFirst("ETag");
+        } catch (Exception e) {
+            throw new CaseSyncException(HttpStatus.INTERNAL_SERVER_ERROR,
+                    String.format("Unable to patch cases data with response : %s", e));
+        }
+    }
+
+    private HttpHeaders buildAuthToken() {
+        HttpHeaders headers = new HttpHeaders();
+        String authHeader = username + ":" + password;
+        byte[] authHeaderBytes = authHeader.getBytes();
+        byte[] base64CredBytes = java.util.Base64.getEncoder().encode(authHeaderBytes);
+        headers.set("Authorization", "Basic " + new String(base64CredBytes));
+        return headers;
     }
 }

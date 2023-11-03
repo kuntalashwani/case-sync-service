@@ -12,10 +12,13 @@ server:
   servlet:
     context-path: /case-sync-service
 
+auth:
+  username: admin
+  password: admin
 
 client:
   baseURL:
-    caseStatusClient: http://localhost:8093/case-status-service
+    caseStatusClient: https://my1000101.de1.test.crm.cloud.sap/sap/c4c
 
 spring:
   autoconfigure:
@@ -33,7 +36,7 @@ paths:
 
 scheduler:
   schedulingEnabled: true
-  time: 0 * * * * *
+  time: 0 0/5 * * * *
   user: systemuser
 
 sync:

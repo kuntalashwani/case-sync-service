@@ -10,7 +10,8 @@ public class AppConstants {
     public static final String EQ = " eq ";
     public static final String UPDATED_ON = "updatedOn";
     public static final String STATUS = "status";
-    public static final String DATE_FORMAT = "dd-MM-yyyy";
+    public static final String DATE_FORMAT = "yyyy-MM-dd";
+    public static final String ADMIN_DATA = "adminData.";
 
 
 }

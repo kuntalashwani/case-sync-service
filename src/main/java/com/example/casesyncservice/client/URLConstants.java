@@ -5,6 +5,7 @@ import java.util.Map;
 public class URLConstants {
     public static final String FETCH_CASES_DATA = "/api/v1/case-service/cases";
     public static final String UPDATE_CASES_DATA = "/api/v1/case-service/cases/{caseId}";
+    public static final String VARIABLE_CASE_ID = "{caseId}";
 
     public static String finalURL(final String url, final Map<String, String> argValue) {
         String finalURL = url;
