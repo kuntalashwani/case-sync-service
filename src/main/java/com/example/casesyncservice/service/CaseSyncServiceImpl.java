@@ -49,7 +49,7 @@ public class CaseSyncServiceImpl implements CaseSyncService {
         cases.getValue().forEach(caseItem -> {
             if(caseItem.getCaseType().equals(syncConfig.getCaseType())
                     && caseItem.getStatus().equals(syncConfig.getFromStatus())) {
-                StatusData statusData = new StatusData("06", "Closed");
+                StatusData statusData = new StatusData(syncConfig.getToStatus(), CLOSED);
                 caseServiceClient.updateCaseStatus(caseItem.getId(), statusData);
             }
         });

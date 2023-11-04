@@ -12,6 +12,7 @@ public class AppConstants {
     public static final String STATUS = "status";
     public static final String DATE_FORMAT = "yyyy-MM-dd";
     public static final String ADMIN_DATA = "adminData.";
+    public static final String CLOSED = "Closed";
 
 
 }

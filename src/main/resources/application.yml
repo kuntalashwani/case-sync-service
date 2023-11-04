@@ -42,6 +42,6 @@ scheduler:
 sync:
   caseType: ZLSS
   rootCategory:
-  fromStatus: 05
-  toStatus: 06
+  fromStatus: "05"
+  toStatus: "06"
   noOfDays: 30
