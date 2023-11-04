@@ -16,6 +16,7 @@ import java.util.Map;
 import java.util.Optional;
 
 import static com.example.casesyncservice.client.URLConstants.*;
+import static com.example.casesyncservice.util.AppConstants.BASIC;
 
 @Slf4j
 @Component
@@ -54,7 +55,7 @@ public class CaseServiceClient {
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(baseUrl + path);
         try {
             HttpHeaders headers = buildAuthToken();
-            headers.set("If-Match", eTag);
+            headers.set(HttpHeaders.IF_MATCH, eTag);
             restTemplate.exchange(builder.toUriString(), HttpMethod.PATCH,
                     new HttpEntity<>(statusData, headers), new ParameterizedTypeReference<>() {
                     }
@@ -74,7 +75,7 @@ public class CaseServiceClient {
                     new HttpEntity<>(buildAuthToken()), new ParameterizedTypeReference<>() {
                     }
             );
-            return responseEntity.getHeaders().getFirst("ETag");
+            return responseEntity.getHeaders().getFirst(HttpHeaders.ETAG);
         } catch (Exception e) {
             throw new CaseSyncException(HttpStatus.INTERNAL_SERVER_ERROR,
                     String.format("Unable to patch cases data with response : %s", e));
@@ -86,7 +87,7 @@ public class CaseServiceClient {
         String authHeader = username + ":" + password;
         byte[] authHeaderBytes = authHeader.getBytes();
         byte[] base64CredBytes = java.util.Base64.getEncoder().encode(authHeaderBytes);
-        headers.set("Authorization", "Basic " + new String(base64CredBytes));
+        headers.set(HttpHeaders.AUTHORIZATION, BASIC + new String(base64CredBytes));
         return headers;
     }
 }
