@@ -4,7 +4,6 @@ import com.example.casesyncservice.client.CaseServiceClient;
 import com.example.casesyncservice.config.SyncConfig;
 import com.example.casesyncservice.model.Cases;
 import com.example.casesyncservice.model.StatusData;
-import com.example.casesyncservice.util.CaseUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

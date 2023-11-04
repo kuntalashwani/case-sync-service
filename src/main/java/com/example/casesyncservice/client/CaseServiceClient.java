@@ -49,7 +49,7 @@ public class CaseServiceClient {
 
     public void updateCaseStatus(final String caseId, final StatusData statusData) {
         String eTag = extractETagResponseHeader(caseId);
-        log.info("Patching update to Closed status for completed cases..");
+        log.info("Patching update to Closed status for completed cases with ETag: {}", eTag);
         String path = finalURL(UPDATE_CASES_DATA, Map.of(VARIABLE_CASE_ID, caseId));
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(baseUrl + path);
         try {
